@@ -1,0 +1,41 @@
+# electron-builder 打包配置（Windows 安装包 / macOS 安装包）
+# 注意：Windows 包必须在 Windows 上打包，macOS 包必须在 macOS 上打包
+
+appId: com.heimabook.app
+productName: 黑马记账
+
+directories:
+  output: dist
+  buildResources: resources
+
+# 打包进安装包的内容：编译产物 + 图标 + 运行时依赖（node_modules 里只有 dependencies 会自动带上）
+files:
+  - out/**
+  - resources/**
+
+# better-sqlite3 的原生模块（.node）必须解出 asar 包，否则无法加载
+asarUnpack:
+  - "**/*.node"
+
+# 不重新编译原生模块（用自带的 N-API 预编译版；本机没有 Visual Studio 编译环境）
+npmRebuild: false
+
+win:
+  icon: resources/icon.png
+  target:
+    - nsis
+
+nsis:
+  oneClick: true
+  perMachine: false
+  shortcutName: 黑马记账
+  artifactName: 黑马记账-安装包-${version}.${ext}
+
+mac:
+  icon: resources/icon.png
+  category: public.app-category.finance
+  target:
+    - dmg
+
+dmg:
+  artifactName: 黑马记账-${version}.${ext}
