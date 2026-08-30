@@ -9,6 +9,7 @@
 - 界面语言：中文；货币：人民币 ¥
 - 数据存储：全部保存在本机（SQLite 数据库），无需联网、无账号
 - 当前阶段：阶段 6 完成 ✅ —— Windows 安装包已生成（dist/黑马记账-安装包-0.1.0.exe），全部 6 个阶段开发完成
+- 版本管理：2026-08-30 加入 Git，已推送 GitHub（公开仓库 https://github.com/komorebi886/heima-bookkeeping），作者签名"黑马记账"
 - 产品设计详见 `docs/产品文档.md`
 
 ## 最重要规则（违反任何一条都不可接受）
@@ -99,6 +100,15 @@ heima_记账app/
 - 无代码签名（未购买签名证书）的安装包：Windows 会弹"Windows 已保护你的电脑"，需点"更多信息 → 仍要运行"；macOS 会提示"无法验证开发者"，需"右键 → 打开"。正式对外发布时可选购买签名证书（需要用户决策）
 - 安装版与开发版共用同一数据目录（%APPDATA%\heima-bookkeeping），数据互通，不会丢失
 - 换电脑迁移数据：在旧电脑"设置 → 创建备份"得到 .hbak 文件 → 新电脑安装后"设置 → 从备份恢复"
+
+## Git 使用说明（2026-08-30 加入版本管理）
+
+- 远程仓库（GitHub，公开）：https://github.com/komorebi886/heima-bookkeeping
+- 作者签名：黑马记账（仅本仓库配置：user.name=黑马记账 / user.email=heima-bookkeeping@local）
+- 主分支：main；推送方式：HTTPS（Git for Windows 凭据管理器已记住登录，直接 push 即可）
+- 日常保存（改完代码后执行）：`git add . && git commit -m "改了什么" && git push`
+- 隐私文件已由 .gitignore 排除（*.hbak 账目备份、*.xlsx 导出文件、.claude/ 会话记录），不会上传
+- 本项目不是 node_modules 等的仓库：`git status` 干净即表示全部已保存
 
 ## 交付物清单（全部 6 个阶段完成）
 
